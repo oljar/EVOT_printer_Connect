@@ -2530,7 +2530,7 @@ class Application (Frame):
                               'fan set': 'Rotary drive/glycol pump', 'external press': 'External pressure', 'fan el mot': 'Fan set', 'heatre I': 'Heater I',
                               'comp un': 'Fan el. motor', 'heatre II': 'Heater II', 'pre filt 1': 'Compressors unit', 'electric heater': 'Electric heater',
                               'pre filt 2': 'Preliminary filter', 'sec filt 2': 'Secondary filter', 'cooler': 'Cooler', 'pre filt 3': 'Preliminary filter',
-                              'sec filt 3': 'Secondary filter', 'Humidifier': 'Humidifier', 'sec filt 1': 'Preliminary filter', 'sec filt 4': 'Secondary filter',
+                              'sec filt 3': 'Secondary filter', 'Humidifier': 'Humidifier', 'sec filt 1': 'Secondary filter', 'sec filt 4': '',
                               'pump el motor': 'Pump el. motor of hum.', 'heat recovery': 'Heat recovery', 'weight': 'Weight', 'air flow u': 'm³/h', 'fan set u': 'kW/V',
                               'external press u': 'Pa', 'fan el mot u': 'type', 'comp un u': 'kW/V', 'heatre II u': '°C/kW/kPa',
                               'pre filt 1 u': ' V/Astart/Amax',
