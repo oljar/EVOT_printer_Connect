@@ -961,8 +961,8 @@ class Application (Frame):
             self.lframe_fan = ttk.LabelFrame(tab4, text= "EC - wentylator")
             self.lframe_fan.pack( anchor = W, padx=7 )
             self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe_fan, text="nawiew-typ-EC" ).grid(row=5, column=1,padx = 3,pady = 10)
-            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_supply_fan_value,width = 30 )
-            self.entry_symbol_EC_supply_fan.grid(row=5, column=5, padx = 1)
+            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_supply_fan_value,width = 18 )
+            self.entry_symbol_EC_supply_fan.grid(row=5, column=5, padx=(0,50) )
 
 
 
@@ -997,8 +997,8 @@ class Application (Frame):
 
 
             self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe_fan, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
-            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_exhaust_fan_value, width = 30 )
-            self.entry_symbol_EC_exhaust_fan.grid(row=5, column=15, padx = 1)
+            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_exhaust_fan_value, width = 18 )
+            self.entry_symbol_EC_exhaust_fan.grid(row=5, column=15, padx=(0,50))
 
             # Power - EC_exhaust_fan
 
@@ -1042,8 +1042,8 @@ class Application (Frame):
 
 
                 self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe_fan, text="nawiew-typ-AC").grid(row=5, column=1, padx=3, pady=10)
-                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_supply_fan_value, width=30)
-                self.entry_symbol_AC_supply_fan.grid(row=5, column=5, padx=1)
+                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_supply_fan_value, width=18 )
+                self.entry_symbol_AC_supply_fan.grid(row=5, column=5, padx=(0,50))
 
                 # Power - AC_supply_fan
 
@@ -1078,8 +1078,8 @@ class Application (Frame):
                 # AC exhaust
 
                 self.lbl_symbol_AC_exhaust_fan = ttk.Label(self.lframe_fan, text="wywiew-typ-AC").grid(row=5, column=10, padx=3, pady=10)
-                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_exhaust_fan_value, width=30)
-                self.entry_symbol_AC_exhaust_fan.grid(row=5, column=15, padx=1)
+                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_exhaust_fan_value, width=18)
+                self.entry_symbol_AC_exhaust_fan.grid(row=5, column=15, padx=(0,50))
 
                 # Power - AC_exhaust_fan
 
