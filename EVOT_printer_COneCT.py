@@ -97,10 +97,13 @@ class Application (Frame):
 
 
 
+
         self.update_supply_fan_EC_value()
         self.update_exhaust_fan_EC_value()
         self.update_supply_fan_AC_value()
         self.update_exhaust_fan_AC_value()
+
+        self.style = ttk.Style()
 
 
 
@@ -137,8 +140,7 @@ class Application (Frame):
         self.quantity_exhaust_filter_value.set('')
         self.quantity_exhaust_filter_02_value.set('')
 
-
-
+        self.numer_Characters_Enrty = 18
 
 
 
@@ -951,6 +953,8 @@ class Application (Frame):
 
     def EC_fan_function(self):
 
+
+
         try :
             self.lframe_fan.destroy()
         except:
@@ -958,10 +962,12 @@ class Application (Frame):
         finally:
 
             #supply_fan symbol
+
+            self.symbol_EC_supply_fan_value.trace('w',self.validation_show_red)
             self.lframe_fan = ttk.LabelFrame(tab4, text= "EC - wentylator")
             self.lframe_fan.pack( anchor = W, padx=7 )
             self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe_fan, text="nawiew-typ-EC" ).grid(row=5, column=1,padx = 3,pady = 10)
-            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_supply_fan_value,width = 18 )
+            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_supply_fan_value,width = 18,style="StyleECSupply.TEntry" )
             self.entry_symbol_EC_supply_fan.grid(row=5, column=5, padx=(0,50) )
 
 
@@ -995,9 +1001,10 @@ class Application (Frame):
 
             # Symbol - EC_exhaust_fan-
 
+            self.symbol_EC_exhaust_fan_value.trace('w', self.validation_show_red)
 
             self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe_fan, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
-            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_exhaust_fan_value, width = 18 )
+            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable = self.symbol_EC_exhaust_fan_value, width = 18 ,style="StyleECExhaust.TEntry")
             self.entry_symbol_EC_exhaust_fan.grid(row=5, column=15, padx=(0,50))
 
             # Power - EC_exhaust_fan
@@ -1036,13 +1043,14 @@ class Application (Frame):
             finally:
 
                 # AC supply
+                self.symbol_AC_supply_fan_value.trace('w', self.validation_show_red)
                 self.lframe_fan = ttk.LabelFrame(tab4, text = "AC - wentylator")
                 self.lframe_fan.pack(anchor=W, padx=7)
 
 
 
                 self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe_fan, text="nawiew-typ-AC").grid(row=5, column=1, padx=3, pady=10)
-                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_supply_fan_value, width=18 )
+                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_supply_fan_value, width=18,style="StyleACSupply.TEntry" )
                 self.entry_symbol_AC_supply_fan.grid(row=5, column=5, padx=(0,50))
 
                 # Power - AC_supply_fan
@@ -1077,8 +1085,10 @@ class Application (Frame):
 
                 # AC exhaust
 
+                self.symbol_AC_exhaust_fan_value.trace('w', self.validation_show_red)
+
                 self.lbl_symbol_AC_exhaust_fan = ttk.Label(self.lframe_fan, text="wywiew-typ-AC").grid(row=5, column=10, padx=3, pady=10)
-                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_exhaust_fan_value, width=18)
+                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe_fan, textvariable=self.symbol_AC_exhaust_fan_value, width=18,style="StyleACExhaust.TEntry")
                 self.entry_symbol_AC_exhaust_fan.grid(row=5, column=15, padx=(0,50))
 
                 # Power - AC_exhaust_fan
@@ -1106,6 +1116,51 @@ class Application (Frame):
 
 
 
+
+    def validation_show_red (self, *args):
+        if len(self.symbol_EC_supply_fan_value.get())>self.numer_Characters_Enrty:
+            self.style.configure(
+                "StyleECSupply.TEntry",
+                foreground = 'red',
+            )
+        else:
+            self.style.configure(
+                "StyleECSupply.TEntry",
+                foreground='black',
+            )
+
+
+        if len(self.symbol_AC_supply_fan_value.get()) > self.numer_Characters_Enrty:
+            self.style.configure(
+                "StyleACSupply.TEntry",
+                foreground='red',
+            )
+        else:
+            self.style.configure(
+                "StyleACSupply.TEntry",
+                foreground='black',
+            )
+        if len(self.symbol_EC_exhaust_fan_value.get()) > self.numer_Characters_Enrty:
+            self.style.configure(
+                "StyleECExhaust.TEntry",
+                foreground='red',
+            )
+        else:
+            self.style.configure(
+                "StyleECExhaust.TEntry",
+                foreground='black',
+            )
+
+        if len(self.symbol_AC_exhaust_fan_value.get()) > self.numer_Characters_Enrty:
+            self.style.configure(
+                "StyleACExhaust.TEntry",
+                foreground='red',
+            )
+        else:
+            self.style.configure(
+                "StyleACExhaust.TEntry",
+                foreground='black',
+            )
 
 
 
