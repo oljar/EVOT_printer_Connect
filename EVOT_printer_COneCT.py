@@ -143,6 +143,13 @@ class Application (Frame):
         self.numer_Characters_Enrty = 18
 
 
+        self.control_nr_warning_EC_supp = 1
+        self.control_nr_warning_AC_supp = 1
+        self.control_nr_warning_EC_exh  = 1
+        self.control_nr_warning_AC_exh = 1
+
+
+
 
 
 
@@ -1118,49 +1125,90 @@ class Application (Frame):
 
 
     def validation_show_red (self, *args):
-        if len(self.symbol_EC_supply_fan_value.get())>self.numer_Characters_Enrty:
+
+        if len(self.symbol_EC_supply_fan_value.get()) > self.numer_Characters_Enrty and self.control_nr_warning_EC_supp == 1:
             self.style.configure(
                 "StyleECSupply.TEntry",
                 foreground = 'red',
             )
-        else:
+            self.warning_text_too_long()
+            self.control_nr_warning_EC_supp += 1
+
+
+        elif len(self.symbol_EC_supply_fan_value.get()) <= self.numer_Characters_Enrty:
             self.style.configure(
                 "StyleECSupply.TEntry",
                 foreground='black',
             )
 
+            self.control_nr_warning_EC_supp = 1
 
-        if len(self.symbol_AC_supply_fan_value.get()) > self.numer_Characters_Enrty:
+
+
+
+        if len(self.symbol_AC_supply_fan_value.get()) > self.numer_Characters_Enrty and self.control_nr_warning_AC_supp == 1:
             self.style.configure(
                 "StyleACSupply.TEntry",
                 foreground='red',
             )
-        else:
+
+            self.warning_text_too_long()
+            self.control_nr_warning_AC_supp +=1
+
+
+        elif len(self.symbol_AC_supply_fan_value.get()) <= self.numer_Characters_Enrty :
             self.style.configure(
                 "StyleACSupply.TEntry",
                 foreground='black',
             )
-        if len(self.symbol_EC_exhaust_fan_value.get()) > self.numer_Characters_Enrty:
+
+            self.control_nr_warning_AC_supp = 1
+
+
+
+
+        if len(self.symbol_EC_exhaust_fan_value.get()) > self.numer_Characters_Enrty and self.control_nr_warning_EC_exh == 1:
             self.style.configure(
                 "StyleECExhaust.TEntry",
                 foreground='red',
-            )
-        else:
-            self.style.configure(
-                "StyleECExhaust.TEntry",
-                foreground='black',
             )
 
-        if len(self.symbol_AC_exhaust_fan_value.get()) > self.numer_Characters_Enrty:
+            self.warning_text_too_long()
+            self.control_nr_warning_EC_exh += 1
+
+
+        elif len(self.symbol_EC_exhaust_fan_value.get()) <= self.numer_Characters_Enrty :
+            self.style.configure(
+                "StyleECExhaust.TEntry",
+                foreground='black',
+            )
+            self.control_nr_warning_EC_exh = 1
+
+
+        if len(self.symbol_AC_exhaust_fan_value.get()) > self.numer_Characters_Enrty and self.control_nr_warning_AC_exh == 1:
+
+
             self.style.configure(
                 "StyleACExhaust.TEntry",
                 foreground='red',
             )
-        else:
+            self.warning_text_too_long()
+            self.control_nr_warning_AC_exh += 1
+
+
+        elif len(self.symbol_AC_exhaust_fan_value.get()) <= self.numer_Characters_Enrty:
             self.style.configure(
                 "StyleACExhaust.TEntry",
                 foreground='black',
             )
+            self.control_nr_warning_AC_exh = 1
+
+
+
+    def warning_text_too_long(self):
+
+
+        messagebox.showinfo('Info', 'Text nie zmieści się w tabliczce')
 
 
 
